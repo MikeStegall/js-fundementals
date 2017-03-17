@@ -158,14 +158,6 @@ function GCD (num1, num2) {
         result = i
       }
     } return result
-  } else {
-    for (i = 0; i < num1; i++) {
-      if (num1 % i !== 0 && num2 % i === 0) {
-        return 1
-      } else if (num1 % i === 0 && num2 % i !== 0) {
-        return 1
-      }
-    }
   }
 }
 console.assert(GCD(5, 1) === 1)
