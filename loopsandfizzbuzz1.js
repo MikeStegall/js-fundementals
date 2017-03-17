@@ -1,6 +1,8 @@
 /* PART 0 *
 Write a function that calculates the sum of all the numbers in an array */
 
+// input: numbers
+// output: number
 function sumOfArray (arr) {
   var sum = 0
   for (var i = 0; i < arr.length; i++) {
@@ -18,6 +20,8 @@ console.assert(sumOfArray([10, 9, 8]) === 27)
 
 // Write a function maxOfArray() that takes an array of numbers as an argument and finds the highest number.
 
+// input: numbers
+// output: number
 function maxOfArray (arr) {
   var max = arr[0]
   for (var i = 0; i < arr.length; i++) {
@@ -39,6 +43,8 @@ PART 2 *
 Write a function isVowel() that takes a character (i.e. a string of length 1)
 and returns true if it is a vowel, false otherwise. */
 
+// input: string
+// output: string
 function isVowel (vowel) {
   var letter = ['a', 'e', 'i', 'o', 'u']
   if (typeof vowel !== 'string') {
@@ -65,6 +71,8 @@ the reversal of a string. For example,
 reverse("skoob") should return the
 string "books". */
 
+// input: string
+// output: string
 function reverse (inputStr) {
   var newStr = ''
   for (var i = inputStr.length - 1; i >= 0; i--) {
@@ -82,8 +90,9 @@ write a function the returns a FizzBuzz string for some number N (counting up fr
 - for every number that is a multiple of 3 (but not 5), return "fizz"
 - for every number that is a multiple of 5 (but not 3), return "buzz"
 - for every number that is a multiple of 3 and 5, return "fizzbuzz" */
-// arr % 3 === 0 log fizz
 
+// input: numbers
+// output: string
 function fizzbuzz (num) {
   var result = ''
   for (var i = 1; i <= num; i++) {
@@ -109,8 +118,11 @@ console.assert(fizzbuzz(10) === '..fizz.buzzfizz..fizzbuzz')
 Part 5 *
 Write a function findLongestWord() that takes a string of words and returns the longest word.
 i.e. findLongestWord("a book full of dogs") should return "book" */
+// input: string
+// output: string
 
 function findLongestWord (str) {
+  str = str.replace('\'', '')
   var strArr = str.split(' ')
   var lenLongestString = 0
   var longString = null
@@ -130,7 +142,32 @@ console.assert(findLongestWord("don't mess with Texas") === 'Texas')
 PART 6 *
 write a function that returns the Greatest Common Denominator of two numbers
 - if no GCD exists, return 1 */
-
+// input: number
+// output: number
+function GCD (num1, num2) {
+  var result = 0
+  if (num1 > num2) {
+    for (var i = 0; i < num1; i++) {
+      if (num1 % i === 0 && num2 % i === 0) {
+        result = i
+      }
+    } return result
+  } else if (num1 < num2) {
+    for (i = 0; i < num1; i++) {
+      if (num1 % i === 0 && num2 % i === 0) {
+        result = i
+      }
+    } return result
+  } else {
+    for (i = 0; i < num1; i++) {
+      if (num1 % i !== 0 && num2 % i === 0) {
+        return 1
+      } else if (num1 % i === 0 && num2 % i !== 0) {
+        return 1
+      }
+    }
+  }
+}
 console.assert(GCD(5, 1) === 1)
 console.assert(GCD(15, 3) === 3)
 console.assert(GCD(15, 5) === 5)
