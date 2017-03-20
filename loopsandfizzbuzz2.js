@@ -82,8 +82,14 @@ console.assert(properSentences(paragraph) === 'It was a fine morning. The wine w
 // PART 4
 // Write a function called iPutTheFunIn(). It should take a string as input.
 // The output should be a copy of the original string with the word 'fun' inserted into the center of the string.
-function iPutTheFunIn() {
-  var insert = 'fun'
+function iPutTheFunIn (str) {
+  var insert = ''
+  for (var i = 0; i < str.length; i++) {
+    if (i === str.length / 2) {
+      insert = insert + 'fun'
+    }
+    insert = insert + str[i]
+  } return insert
 }
 console.assert(iPutTheFunIn('funerary') === 'funefunrary')
 console.assert(iPutTheFunIn('reds') === 'refunds')
@@ -96,13 +102,15 @@ console.assert(iPutTheFunIn('reds') === 'refunds')
 // by both function (2) and function (3).
 
 // TODO: put your function here
-
+function pipeline (input, func1, func2) {
+  return (func2(func1(input)))
+}
 // THE FOLLOWING THREE TESTS ALL CORRESPOND TO THE `pipeline()` FUNCTION
 
 // test 1
-var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
+var paragraph1 = 'mom bring your crappy self in here. i want a dang sandwich.'
 
-console.assert(pipeline(paragraph, nicer, properSentences) === 'Mom bring your self in here. I want a sandwich.')
+console.assert(pipeline(paragraph1, nicer, properSentences) === 'Mom bring your self in here. I want a sandwich.')
 
 // test 2
 function squareNum (n) {
